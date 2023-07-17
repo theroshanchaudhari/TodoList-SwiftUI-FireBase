@@ -24,6 +24,9 @@ struct CustomButtonType_1: View {
                     .frame(width: width, height:height)
                 Text(title)
                     .foregroundColor(.white)
+                    .fontDesign(.rounded)
+                    .font(.system(size: 18))
+                    .bold()
                     
             }
            

@@ -20,7 +20,8 @@ struct CustomTextFieldType_1: View {
                 .opacity(0.2)
             TextField(placeHolder, text: $text)
                 .textFieldStyle(PlainTextFieldStyle())
-                .font(.custom("Applespice", size: 20))
+                .font(.system(size: 20))
+                .fontDesign(.rounded)
                 .frame(width: 325)
             
         }
@@ -29,7 +30,7 @@ struct CustomTextFieldType_1: View {
     
     struct CustomTextFieldType_1_Previews: PreviewProvider {
         static var previews: some View {
-            @State var email = "\t"
+            @State var email = ""
             CustomTextFieldType_1(text: $email, width: 350, height: 45, placeHolder: "Email")
         }
     }

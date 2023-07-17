@@ -29,7 +29,10 @@ struct HeaderView: View {
                 .position(x:x2, y:y2)
             VStack{
                 Text(title)
-                    .font(.custom("Applespice", size: 50))
+                    .font(.system(size: 50))
+                    .bold()
+                    .fontDesign(.rounded)
+                    
                     .foregroundColor(Color.black)
 
             }

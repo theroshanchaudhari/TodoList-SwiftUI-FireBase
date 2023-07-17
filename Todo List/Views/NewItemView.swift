@@ -9,10 +9,12 @@ import SwiftUI
 
 struct NewItemView: View {
     @StateObject var viewModel = NewItemViewViewModel()
+    @Binding var showingNewItemView : Bool
     var body: some View {
         VStack{
             Text("New Item")
-                .font(.custom("Applespice", size: 20)  )
+                .font(.system(.largeTitle) )
+                .padding(.top, 40)
             Form{
                 // Title
                 TextField  ("Title", text: $viewModel.title)
@@ -24,16 +26,31 @@ struct NewItemView: View {
                 
                 //Button
                 CustomButtonType_1(title: "Save", background: .yellow, width: 325, height: 50, action: {
-                   //Action
+                    if viewModel.canSave{
+                        viewModel.save()
+                        showingNewItemView = false
+                    }
+                    else{
+                        viewModel.showingAlert = true
+                    }
+                 
                 } )
                 .frame(alignment: .center)
+                .padding(3)
             }
+            .alert(isPresented: $viewModel.showingAlert, content: {
+                Alert(title: Text("Error"), message: Text("Kindly choose today's or future date "))
+            })
         }
     }
 }
 
 struct NewItemView_Previews: PreviewProvider {
     static var previews: some View {
-        NewItemView()
+        NewItemView(showingNewItemView: Binding(get: {
+            return true
+        }, set: { _ in
+             
+        }))
     }
 }

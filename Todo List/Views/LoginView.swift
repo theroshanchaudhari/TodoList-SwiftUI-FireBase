@@ -25,13 +25,14 @@ struct LoginView: View {
                     if !viewModal.Message.isEmpty {
                         Text(viewModal.Message)
                             .foregroundColor(Color.red)
-                            .font(.custom("Applespice", size: 20))
+                            .font(.title)
+                            .fontDesign(.rounded)
                     }
                     //Login Form
                     VStack(spacing: 20){
                         CustomTextFieldType_1(text: $viewModal.email, width: 350, height: 45, placeHolder: "Email")
                         CustomSecureField_Type1(text: $viewModal.password, width: 350, height: 45, placeHolder: "Pass***d")
-                        CustomButtonType_1(title: "Login", background: .green, width: 350, height: 45, action: {
+                        CustomButtonType_1(title: "Login", background: .blue, width: 350, height: 45, action: {
                             viewModal.login()
                         })
                     }
@@ -53,22 +54,24 @@ struct LoginView: View {
 //                                        .font(.system(size: 15))
 //                                }
 //                            }
-                            CustomButtonType_1(title: "Reset\nPassowrd", background: .red, width: 100, height: 55, action: {
+                            CustomButtonType_1(title: "Reset\nPassowrd", background: .black, width: 100, height: 55, action: {
                                 //Action
                             })
                             NavigationLink(destination: RegisterView()) {
-//                                ZStack{
-//                                    RoundedRectangle(cornerRadius: 10)
-//                                        .fill(.yellow)
-//                                        .frame(width: 100, height: 50)
-//
-//                                    Text("Register \n User")
-//                                        .foregroundColor(.white)
-//                                        .font(.system(size: 15))
-//                                }
-                                CustomButtonType_1(title: "Register", background: .yellow, width: 100, height: 55, action: {
-                                    //Action
-                                })
+                                ZStack{
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .fill(.yellow)
+                                        .frame(width: 100, height: 50)
+
+                                    Text("Register \n User")
+                                        .foregroundColor(.white)
+                                        .bold()
+                                        .fontDesign(.rounded)
+                                        .font(.system(size: 18))
+                                }
+//                                CustomButtonType_1(title: "Register", background: .yellow, width: 100, height: 55, action: {
+//                                    .RegisterView()
+//                                })
                                 
                             }
                             

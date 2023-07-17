@@ -19,7 +19,8 @@ struct CustomSecureField_Type1: View {
                 .opacity(0.2)
             SecureField(placeHolder, text: $text)
                 .textFieldStyle(PlainTextFieldStyle())
-                .font(.custom("Applespice", size: 20))
+                .font(.system(.title2))
+                .fontDesign(.rounded)
                 .autocorrectionDisabled(true)
                 .autocapitalization(.none)
                 .frame(width: 325)
@@ -33,6 +34,6 @@ struct CustomSecureField_Type1: View {
 struct CustomSecureField_Type1_Previews: PreviewProvider {
     static var previews: some View {
         @State var password = ""
-        CustomSecureField_Type1(text: $password, width: 350, height: 45, placeHolder: "Pa****rd")
+        CustomSecureField_Type1(text: $password, width: 350, height: 45, placeHolder: "*********")
     }
 }
